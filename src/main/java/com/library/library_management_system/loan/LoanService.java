@@ -46,4 +46,29 @@ public class LoanService {
 
         return loanRepository.save(loan);
     }
+
+    @Transactional
+    public Loan returnBook(Long loanId) {
+        // 1. Find the loan record by its ID. If it doesn't exist, throw an error.
+        Loan loan = loanRepository.findById(loanId)
+                .orElseThrow(() -> new IllegalStateException("No loan found with ID: " + loanId));
+
+        // 2. Check if the book has already been returned to prevent errors.
+        if (loan.getReturnDate() != null) {
+            throw new IllegalStateException("This book has already been returned.");
+        }
+
+        // 3. Set the return date to now.
+        loan.setReturnDate(LocalDate.now());
+
+        // 4. Get the book that is part of this loan and set its status back to available.
+        Book book = loan.getBook();
+        book.setAvailable(true);
+        bookRepository.save(book); // Don't forget to save the updated book!
+
+        // 5. Save the updated loan record and return it.
+        return loanRepository.save(loan);
+    }
+
+
 }

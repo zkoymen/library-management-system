@@ -20,4 +20,11 @@ public class LoanController {
     public Loan borrowBook(@RequestParam Long bookId, @RequestParam Long memberId) {
         return loanService.borrowBook(bookId, memberId);
     }
+
+
+    // Example: PUT http://localhost:8080/api/v1/loans/1/return
+    @PutMapping(path = "{loanId}/return")
+    public Loan returnBook(@PathVariable("loanId") Long loanId) {
+        return loanService.returnBook(loanId);
+    }
 }

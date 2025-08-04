@@ -23,6 +23,12 @@ public class BookController {
         return bookService.getAllBooks();
     }
 
+    // GET http://localhost:8080/api/v1/books/1
+    @GetMapping(path = "{bookId}")
+    public Book getBookById(@PathVariable("bookId") Long bookId) {
+        return bookService.getBookById(bookId);
+    }
+
     // POST http://localhost:8080/api/v1/books
     @PostMapping
     public Book registerNewBook(@RequestBody Book book) {

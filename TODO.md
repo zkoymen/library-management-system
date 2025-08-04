@@ -1,46 +1,57 @@
-# Project TODO List
+# Project TODO List - Library Management System (Monolith)
 
-This file tracks the development tasks for the Library Management System.
+This file tracks the development tasks for the single-application Library Management System.
 
-## Phase 1: MVP (Minimum Viable Product)
+## Phase 1: MVP Backend (REST APIs)
 
 ### Milestone 1: Project Setup & Core Models
-- [ ] Initialize Spring Boot project via Spring Initializr.
-- [ ] Add dependencies: `Spring Web`, `Spring Data JPA`, `H2 Database`, `Thymeleaf`.
-- [ ] Create the `Book` entity class (`@Entity`).
-- [ ] Create the `Member` entity class (`@Entity`).
-- [ ] Create the `Loan` entity class (`@Entity`).
-- [ ] Set up basic application properties for the H2 database.
+- [x] Initialize Spring Boot project.
+- [x] Add dependencies: `Spring Web`, `Spring Data JPA`, `H2 Database`, `Thymeleaf`.
+- [x] Create the `Book` entity class.
+- [x] Create the `Member` entity class.
+- [x] Create the `Loan` entity class.
+- [x] Set up basic H2 database configuration.
 
-### Milestone 2: Book Management (CRUD)
-- [ ] Create `BookRepository` interface (`extends JpaRepository`).
-- [ ] Create `BookService` class with business logic (add, find, update, delete).
-- [ ] Create `BookController` to handle web requests.
-- [ ] Create Thymeleaf view (`books.html`) to display all books.
-- [ ] Create Thymeleaf view (`add-book.html`) with a form to add a new book.
-- [ ] Create Thymeleaf view (`edit-book.html`) with a form to update a book.
-- [ ] Implement the delete book functionality.
+### Milestone 2: Book Management API
+- [x] Create `BookRepository`, `BookService`, `BookController`.
+- [x] Implement API endpoints for GET all, GET by ID, POST (add), and DELETE book.
 
-### Milestone 3: Member Management (CRUD)
-- [ ] Create `MemberRepository` interface.
-- [ ] Create `MemberService` class.
-- [ ] Create `MemberController`.
-- [ ] Create Thymeleaf view (`members.html`) to display all members.
-- [ ] Create Thymeleaf view (`add-member.html`) to register a new member.
-- [ ] Implement update and delete functionality for members.
+### Milestone 3: Member Management API
+- [x] Create `MemberRepository`, `MemberService`, `MemberController`.
+- [x] Implement API endpoints for GET all, GET by ID, POST (add), and DELETE member.
 
-### Milestone 4: Loan Management
-- [ ] Create `LoanRepository` interface.
-- [ ] Enhance `BookService` and `MemberService` to handle loan logic.
-- [ ] Create a `LoanController` or add endpoints to existing controllers.
-- [ ] Create a Thymeleaf view (`lend-book.html`) for the librarian to issue a book.
-- [ ] Implement the "Return Book" functionality.
-- [ ] Create a "My Books" page for a logged-in member (post-MVP feature but good to plan).
+### Milestone 4: Loan Management API
+- [x] Create `LoanRepository`, `LoanService`, `LoanController`.
+- [x] Implement API endpoint to **Borrow** a Book.
+- [ ] Implement API endpoint to **Return** a Book.  <-- **THIS IS OUR NEXT STEP.**
 
-## Phase 2: Future Enhancements
-- [ ] Implement Spring Security for user authentication (Librarian vs. Member roles).
-- [ ] Add a search feature for books.
-- [ ] Implement validation for all forms.
-- [ ] Add due dates and an "overdue books" report.
-- [ ] Switch from H2 to a persistent database like PostgreSQL.
-- [ ] Write unit and integration tests.
+---
+
+## Phase 2: MVP Frontend (A User-Friendly UI)
+
+### Milestone 5: UI Foundation & Styling
+- [ ] Add Bootstrap for a professional look.
+- [ ] Create a main layout template with a consistent navigation menu and footer.
+- [ ] Create a welcoming Home Page.
+
+### Milestone 6: Book Management UI
+- [ ] Create a page to display all books in a table.
+- [ ] Create a form page to add a new book.
+- [ ] Implement "Delete" functionality from the UI.
+
+### Milestone 7: Member Management UI
+- [ ] Create a page to display all members.
+- [ ] Create a form page to register a new member.
+
+### Milestone 8: Loan Management UI
+- [ ] Create a page to display all active loans.
+- [ ] Implement "Return Book" functionality with a button.
+- [ ] Create a "Lend Book" page with user-friendly dropdowns.
+
+---
+
+## Phase 3: Future Enhancements
+- [ ] Implement User Login/Registration (Authentication & Authorization).
+- [ ] Implement robust form validation.
+- [ ] Add a search feature.
+- [ ] Write unit tests.

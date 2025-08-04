@@ -42,7 +42,7 @@ To create an efficient and user-friendly application that automates the core pro
 2.  **Clone the repository:**
     ```bash
     git clone https://github.com/zkoymen/library-management-system.git
-    cd your-repo-name
+    cd library-management-system
     ```
 
 3.  **Run the application:**

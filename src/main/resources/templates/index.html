@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<!-- This 'th:replace' attribute tells Thymeleaf to completely replace this file's content
+     with the 'main-template.html' file, but it will cleverly insert our 'content' fragment
+     into the right place. -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{main-template :: layout(~{::title}, ~{::#content})}">
+<head>
+    <title>Home Page</title>
+</head>
+<body>
+<div id="content">
+    <h1>Welcome to the Library Management System</h1>
+    <p>This is the main dashboard for managing the library's resources.</p>
+    <hr/>
+    <p>Use the navigation bar above to manage books and members.</p>
+</div>
+</body>
+</html>

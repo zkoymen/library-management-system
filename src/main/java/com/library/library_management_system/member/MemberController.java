@@ -23,6 +23,14 @@ public class MemberController {
         return memberService.getAllMembers();
     }
 
+
+    // GET http://localhost:8080/api/v1/members/1
+    @GetMapping(path = "{memberId}")
+    public Member getMemberById(@PathVariable("memberId") Long memberId) {
+        return memberService.getMemberById(memberId);
+    }
+
+
     // POST http://localhost:8080/api/v1/members
     @PostMapping
     public Member registerNewMember(@RequestBody Member member) {

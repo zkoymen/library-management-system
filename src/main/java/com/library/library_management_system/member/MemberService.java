@@ -20,6 +20,12 @@ public class MemberService {
         return memberRepository.findAll();
     }
 
+    // Method to get a single member by their ID
+    public Member getMemberById(Long memberId) {
+        return memberRepository.findById(memberId)
+                .orElseThrow(() -> new IllegalStateException("Member with id " + memberId + " does not exist"));
+    }
+
     public Member registerNewMember(Member member) {
         // Check if the email is already taken
         Optional<Member> memberOptional = memberRepository.findByEmail(member.getEmail());
